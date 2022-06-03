@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>RADAR</title>
+</head>
+<body>
+    <div id="header">
+        <label for="input-match-id">
+            Match ID:
+        </label>
+        <input type="text" id="input-match-id" />
+        <button type="submit" id="submit-button">OK</button>
+    </div>
+
+    <div id="widget">
+        <div id="sr-widget" data-sr-widget="match.momentum" data-sr-match-id="26109428"></div>
+    </div>
+
+    <div id="pressure-stats">
+        <h3>Carregando...</h3>
+    </div>
+
+    <div class="divider">
+    </div>
+
+    <h2 id="time-machine-h">Time Machine</h2>
+
+    <p id="time-machine-desc">
+        Insira um minuto especifíco no campo abaixo para ver como estavam
+        os indicadores naquele momento do jogo.
+    </p>
+
+    <div id="time-machine">
+        <div id="form-time-machine">
+            <label for="input-minute">
+                Minuto:
+            </label>
+            <input type="number" id="input-minute" />
+            <button type="submit" id="submit-minute">OK</button>
+        </div>
+        <div id="stats-before"></div>
+    </div>
+
+    <script src="./scripts/prescript.js" async></script>
+    <script type="application/javascript" src="https://widgets.sir.sportradar.com/sportradar/widgetloader" async>
+        </script>
+    <link rel="stylesheet" href="styles/chartStyle.css">
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

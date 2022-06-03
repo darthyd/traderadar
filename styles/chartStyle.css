@@ -1,0 +1,66 @@
+/* BASE */
+.sr-bb .srt-base-1 {
+    background-color: #141435;
+    fill: #fff;
+    color: #fff;
+}
+
+/* FILL HIGHLIGHTED SPACES ON GRAPH */
+.sr-bb .srt-fill-neutral-9 {
+    fill: #222241;
+}
+
+/* FILL YELLOW CARDS */
+.sr-bb .srt-fill-soccer-yellow-card {
+    fill: #ffbf00;
+}
+
+/* FILL RED CARDS */
+.sr-bb .srt-fill-soccer-red-card {
+    fill: #ff0c0c;
+}
+
+
+/* AWAY TEAM */
+.sr-bb .srt-stroke-away-1 {
+    stroke: #FD2954;
+}
+
+.sr-bb .srt-fill-away-1 {
+    fill: #FD2954;
+}
+
+/* HOME TEAM */
+.sr-bb .srt-stroke-home-1 {
+    stroke: #0495E3;
+}
+
+.sr-bb .srt-fill-home-1 {
+    fill: #0495E3;
+}
+
+
+/* 
+
+ .srt-fill-neutral-9
+
+    --brand-color: #0072b1;
+    --brand-color_rgb: 0,115,170;
+    direction: ltr;
+    -webkit-box-direction: normal;
+    -webkit-text-size-adjust: 100%;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    text-indent: 0;
+    text-shadow: none;
+    x: 462.5;
+    y: 0;
+    width: 11;
+    height: 96;
+    box-sizing: border-box;
+    min-height: auto;
+    position: static;
+    z-index: auto;
+    -webkit-text-stroke: 1px transparent;
+    fill: #222241; */
