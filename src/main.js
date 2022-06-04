@@ -23,8 +23,8 @@ function createWindow () {
 
 function createShortcuts() {
   // Cria os atalhos do teclado
-    globalShortcut.register('CmdOrCtrl+J', () => win.webContents.toggleDevTools())
-    globalShortcut.register('CmdOrCtrl+X', () => win.setAlwaysOnTop(!win.isAlwaysOnTop()))
+    globalShortcut.register('CmdOrCtrl+Shift+J', () => win.webContents.toggleDevTools())
+    globalShortcut.register('CmdOrCtrl+Shift+X', () => win.setAlwaysOnTop(!win.isAlwaysOnTop()))
 }
 
 // Este método irá ser chamado quando o Electron
