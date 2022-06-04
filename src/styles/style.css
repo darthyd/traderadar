@@ -24,6 +24,11 @@ body {
     box-sizing: border-box;
 }
 
+.container {
+    width: 100%;
+    margin: 20px auto;
+}
+
 #instruction {
     width: 75%;
     margin: 0 auto;
