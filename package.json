@@ -5,12 +5,6 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
-    "build:linux": "electron-packager ./ trade-radar --platform linux --arch x64 --out build/linux/trade-radar/0.0.1 --app-version 0.0.1 --overwrite",
-    "build:linux32": "electron-packager ./ trade-radar --platform linux --arch ia32 --out build/linux32/trade-radar/0.0.1 --app-version 0.0.1 --overwrite",
-    "build:mac": "electron-packager ./ trade-radar --platform darwin --arch x64 --icon ./assets/icon.icns --out build/mac/trade-radar/0.0.1 --app-version 0.0.1 --overwrite",
-    "build:win": "electron-packager ./ trade-radar --platform win32 --arch x64 --out build/windows/trade-radar/0.0.1 --app-version 0.0.1 --overwrite",
-    "build:win32": "electron-packager ./ trade-radar --platform win32 --arch ia32 --out build/windows32/trade-radar/0.0.1 --app-version 0.0.1 --overwrite",
-    "build:all": "npm run build:linux && npm run build:linux32 && npm run build:mac && npm run build:win && npm run build:win32",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
