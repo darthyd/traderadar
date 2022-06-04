@@ -31,11 +31,13 @@ function getPressure(){
 }
 
 function getLastBars(bars, nBars) {
-    return bars.slice(bars.length - nBars)
+    const sliceOfBars = bars.slice(bars.length - nBars)
+    return sliceOfBars.length === nBars ? sliceOfBars : "N/A" 
 }
 
 function barsAverage(bars){
-    return bars.reduce((acc, item) => acc + item.value, 0) / bars.length;
+    if (bars === "N/A") return "N/A"
+    return (bars.reduce((acc, item) => acc + item.value, 0) / bars.length).toFixed(2);
 }
 
 function updateScreen(div, three, five, ten, total){
@@ -46,12 +48,12 @@ function updateScreen(div, three, five, ten, total){
 
     div.innerHTML = `
         <div class="pressure-stats-item">
-            <span class="lb-item ${fiveColor}">5 barras:</span>
-            <span class="vl-item ${fiveColor}">${five}</span>
-        </div>
-        <div class="pressure-stats-item">
             <span class="lb-item ${threeColor}">3 barras:</span>
             <span class="vl-item ${threeColor}">${three}</span>
+        </div>
+        <div class="pressure-stats-item">
+            <span class="lb-item ${fiveColor}">5 barras:</span>
+            <span class="vl-item ${fiveColor}">${five}</span>
         </div>
         <div class="pressure-stats-item">
             <span class="lb-item ${tenColor}">10 barras:</span>
@@ -68,22 +70,21 @@ setInterval(() => {
         HOME_BARS = document.querySelector(".srt-stroke-home-1");
         AWAY_BARS = document.querySelector(".srt-stroke-away-1");
         PRESSURE_BARS = getPressure()
-        THREE = barsAverage(getLastBars(PRESSURE_BARS, 3)).toFixed(2);
-        FIVE = barsAverage(getLastBars(PRESSURE_BARS, 5)).toFixed(2);
-        TEN = barsAverage(getLastBars(PRESSURE_BARS, 10)).toFixed(2);
-        TOTAL = barsAverage(PRESSURE_BARS).toFixed(2);
+        THREE = barsAverage(getLastBars(PRESSURE_BARS, 3));
+        FIVE = barsAverage(getLastBars(PRESSURE_BARS, 5));
+        TEN = barsAverage(getLastBars(PRESSURE_BARS, 10));
+        TOTAL = barsAverage(PRESSURE_BARS);
         updateScreen(PRESSURE_STATS_DIV, THREE, FIVE, TEN, TOTAL);
 }, 10000)
 
 buttonMinute.addEventListener("click", () => {
     BEFORE_STATS_DIV.innerHTML = "<p>Carregando...</p>"
-    const minute = document.getElementById("input-minute").value;
+    const minute = document.getElementById("input-minute").value - 1;
     const minuteBars = PRESSURE_BARS.slice(0, minute);
-    const three = barsAverage(getLastBars(minuteBars, 3)).toFixed(2);
-    const five = barsAverage(getLastBars(minuteBars, 5)).toFixed(2);
-    const ten = barsAverage(getLastBars(minuteBars, 10)).toFixed(2);
-    const total = barsAverage(minuteBars).toFixed(2);
-    console.log(BEFORE_STATS_DIV, three, five, ten, total)
+    const three = barsAverage(getLastBars(minuteBars, 3));
+    const five = barsAverage(getLastBars(minuteBars, 5));
+    const ten = barsAverage(getLastBars(minuteBars, 10));
+    const total = barsAverage(minuteBars);
     updateScreen(BEFORE_STATS_DIV, three, five, ten, total);
 })
 
