@@ -29,6 +29,10 @@ body {
     margin: 20px auto;
 }
 
+#dev > p > span {
+    color: red;
+}
+
 #instruction {
     width: 75%;
     margin: 0 auto;
