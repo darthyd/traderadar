@@ -10,6 +10,10 @@ function createWindow () {
         height: 275,
         frame: config.frame,
         titleBarStyle: config.titleBar,
+        titleBarOverlay: {
+          color: '#141435',
+          symbolColor: '#74b1be'
+        },
         autoHideMenuBar: config.autoHideMenu,
         webPreferences: {
           nodeIntegration: config.nodeInteg,
