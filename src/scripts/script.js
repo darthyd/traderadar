@@ -41,10 +41,10 @@ function barsAverage(bars){
 }
 
 function updateScreen(div, three, five, ten, total){
-    const tenColor = ten < 3 ? "red" : "green"; 
-    const fiveColor = five < 0 ? "red" : "green"; 
-    const threeColor = three < -3 ? "red" : "green";
-    const totalColor = total < 0 ? "red" : "green"; 
+    const tenColor = ten < 0 ? "red" : ten !== "N/A" ? "green" : "default"; 
+    const fiveColor = five < 0 ? "red" : five !== "N/A" ? "green" : "default";
+    const threeColor = three < 0 ? "red" : three !== "N/A" ? "green" : "default";
+    const totalColor = total < 0 ? "red" : ten !== 0.0 ? "green" : "default";;
 
     div.innerHTML = `
         <div class="pressure-stats-item">
