@@ -39,28 +39,6 @@
     fill: #0495E3;
 }
 
-
-/* 
-
- .srt-fill-neutral-9
-
-    --brand-color: #0072b1;
-    --brand-color_rgb: 0,115,170;
-    direction: ltr;
-    -webkit-box-direction: normal;
-    -webkit-text-size-adjust: 100%;
-    color: inherit;
-    font: inherit;
-    text-align: inherit;
-    text-indent: 0;
-    text-shadow: none;
-    x: 462.5;
-    y: 0;
-    width: 11;
-    height: 96;
-    box-sizing: border-box;
-    min-height: auto;
-    position: static;
-    z-index: auto;
-    -webkit-text-stroke: 1px transparent;
-    fill: #222241; */
+.sr-bb .srt-stroke-home-1 > line.white, .sr-bb .srt-stroke-away-1 > line.white {
+    stroke: #fff;
+}

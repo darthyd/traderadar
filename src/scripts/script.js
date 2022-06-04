@@ -7,6 +7,7 @@ let THREE = "N/A";
 let FIVE = "N/A";
 let TEN = "N/A";
 let TOTAL = "N/A";
+let REFERENCE;
 const buttonMinute = document.getElementById("submit-minute");
 const submitButton = document.getElementById("submit-button");
 const inputIdMatch = document.getElementById("input-match-id");
@@ -16,11 +17,11 @@ function getPressure(){
     const pressure = [];
 
     HOME_BARS.childNodes.forEach(item => {
-        pressure.push({element: item, min: (item.x1.baseVal.value / 10), value: 100 - item.y1.baseVal.value})
+        pressure.push({element: item, min: item.x1.baseVal.value / 10, value: 100 - item.y1.baseVal.value})
     })
 
     AWAY_BARS.childNodes.forEach(item => {
-        pressure.push({element: item, min: (item.x1.baseVal.value / 10), value: 0 - item.y2.baseVal.value + 100})
+        pressure.push({element: item, min: item.x1.baseVal.value / 10, value: 0 - item.y2.baseVal.value + 100})
     })
 
     pressure.sort((a, b) => {
@@ -81,10 +82,14 @@ buttonMinute.addEventListener("click", () => {
     BEFORE_STATS_DIV.innerHTML = "<p>Carregando...</p>"
     const minute = document.getElementById("input-minute").value - 1;
     const minuteBars = PRESSURE_BARS.slice(0, minute);
+    REFERENCE?.classList.remove("white");
+    REFERENCE = minuteBars[minuteBars.length - 1].element;
+    REFERENCE.classList.add("white");
     const three = barsAverage(getLastBars(minuteBars, 3));
     const five = barsAverage(getLastBars(minuteBars, 5));
     const ten = barsAverage(getLastBars(minuteBars, 10));
     const total = barsAverage(minuteBars);
+    console.log(minuteBars);
     updateScreen(BEFORE_STATS_DIV, three, five, ten, total);
 })
 
