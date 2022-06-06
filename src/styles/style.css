@@ -29,10 +29,6 @@ body {
     margin: 20px auto;
 }
 
-#dev > p > span {
-    color: red;
-}
-
 #alert {
     width: 50%;
     margin: 10px auto;
@@ -132,18 +128,18 @@ input {
     width: 50px;
 }
 
-#dev {
+#footer {
     width: 75%;
     margin: 0 auto;
     font-size: 12px;
     font-weight: bold;
 }
 
-#dev > p {
+#footer > p {
     margin: 0;
     text-align: center;
 }
 
-#dev > p > a {
+#footer > p > span, #footer > p > a {
     color: red;
 }

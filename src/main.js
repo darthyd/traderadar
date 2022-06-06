@@ -6,8 +6,8 @@ let win;
 function createWindow () {
     //cria a janela do browser
     win = new BrowserWindow({
-        width: 420,
-        height: 275,
+        width: config.compactWidth,
+        height: config.compactHeight,
         frame: config.frame,
         titleBarStyle: config.titleBar,
         titleBarOverlay: {

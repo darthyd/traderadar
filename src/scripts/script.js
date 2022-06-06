@@ -9,8 +9,6 @@ let TEN = "N/A";
 let TOTAL = "N/A";
 let REFERENCE;
 const buttonMinute = document.getElementById("submit-minute");
-const submitButton = document.getElementById("submit-button");
-const inputIdMatch = document.getElementById("input-match-id");
 
 
 function getPressure(){
