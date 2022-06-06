@@ -8,71 +8,63 @@
     <title>TRADE RADAR - @darthyd</title>
 </head>
 <body>
-    <div id="dev">
-        <p>
-            <br/>
-            Desenvolvido sob licença de código aberto e sem proposta de lucro comercial por
-            <a href="github.com/darthyd/traderadar">@darthyd</a>
-        </p>
-
-        <p>
-            <br/>
-            Todos os direitos de lucro e propriedade das informações do radar são de 
-            <a href="https://widgets.sir.sportradar.com/betradar/br/widgets-demo">sportradar</a>. <br/>
-            As informações pertencentes a referida empresa e aqui contidas são disponibilizadas mesma sob caráter de licença de demonstração.
-        </p>
-    </div>
-
-    <div class="divider"></div>
-
-    <div id="header">
-        <label for="input-match-id">
-            Match ID:
-        </label>
-        <input type="text" id="input-match-id" />
-        <button type="submit" id="submit-button">OK</button>
-    </div>
-    <div id="wrap-instructions">
-        <p id="instruction" href="">Busque o id da partida no site: <span>widgets.sir.sportradar.com/betradar/br/widgets-demo</span></p>
-        <p id="alert">ALERTA: Os inputs de cores estão configurados conforme o entendimento inicial do desenvolvedor sobre os números e não deve ser
-            levado em conta de forma isolada para justificar uma entrada, estude os números e veja qual a melhor interpretação deles
-            para o seu caso.
-        </p>
-    </div>
-
-    <div id="widget">
-        <div id="sr-widget" data-sr-widget="match.momentum" data-sr-match-id="26109428"></div>
-    </div>
-
-    <div id="pressure-stats">
-        <h3>Carregando...</h3>
-    </div>
-
-    <div class="divider">
-    </div>
-
-    <h2 id="time-machine-h">Time Machine</h2>
-
-    <p id="time-machine-desc">
-        Insira um minuto especifíco no campo abaixo para ver como estavam
-        os indicadores naquele momento do jogo.
-    </p>
-
-    <div id="time-machine">
-        <div id="form-time-machine">
-            <label for="input-minute">
-                Minuto:
-            </label>
-            <input type="number" id="input-minute" />
-            <button type="submit" id="submit-minute">OK</button>
+    <div id="overlay"></div>
+    <div class="container">
+        <div id="sr-widget" data-sr-widget="match.matchList" data-sr-sport-id="1"></div>
+    
+        <div id="widget">
+            <div id="sr-widget" data-sr-widget="match.momentum" data-sr-match-id="26109428"></div>
         </div>
-        <div id="stats-before"></div>
+    
+        <div id="pressure-stats">
+            <h3>Carregando...</h3>
+        </div>
+    
+        <div class="divider">
+        </div>
+    
+        <h2 id="time-machine-h">Time Machine</h2>
+    
+        <p id="time-machine-desc">
+            Insira um minuto especifíco no campo abaixo para ver como estavam
+            os indicadores naquele momento do jogo.
+        </p>
+    
+        <div id="time-machine">
+            <div id="form-time-machine">
+                <label for="input-minute">
+                    Minuto:
+                </label>
+                <input type="number" id="input-minute" />
+                <button type="submit" id="submit-minute">OK</button>
+            </div>
+            <div id="stats-before"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="dev">
+            <p>
+                <br/>
+                Desenvolvido sob licença de código aberto e sem proposta de lucro comercial por
+                <span>@darthyd</span> <br/>
+
+            </p>
+    
+            <p>
+                <br/>
+                Todos os direitos das informações do radar inclusive a exploração comercial destas são de propriedade
+                <span>SportRadar</span> e/ou suas subsidiárias e detentoras <br/>
+                <!-- As informações pertencentes a referida empresa e aqui contidas são disponibilizadas mesma sob caráter de licença de demonstração. -->
+            </p>
+        </div>
     </div>
 
     <script src="./scripts/prescript.js" async></script>
     <script type="application/javascript" src="https://widgets.sir.sportradar.com/sportradar/widgetloader" async>
         </script>
     <link rel="stylesheet" href="styles/chartStyle.css">
+    <link rel="stylesheet" href="styles/postCss.css">
     <script src="./scripts/script.js"></script>
 </body>
 </html>

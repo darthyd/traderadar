@@ -6,10 +6,14 @@ let win;
 function createWindow () {
     //cria a janela do browser
     win = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 420,
+        height: 275,
         frame: config.frame,
         titleBarStyle: config.titleBar,
+        titleBarOverlay: {
+          color: '#141435',
+          symbolColor: '#74b1be'
+        },
         autoHideMenuBar: config.autoHideMenu,
         webPreferences: {
           nodeIntegration: config.nodeInteg,
@@ -32,6 +36,9 @@ function createShortcuts() {
 // para criar janelas
 // Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.whenReady().then(() => {
+
+  if (require('electron-squirrel-startup')) return app.quit();
+
     createWindow()
     createShortcuts()
   

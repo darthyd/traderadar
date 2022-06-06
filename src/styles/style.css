@@ -1,4 +1,18 @@
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar:hover {
+    background-color: #0495E3;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FD2954;
+}
+
 body {
+    overflow-x: hidden;
     height: 100%;
     background-color: #141435;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -10,18 +24,13 @@ body {
     box-sizing: border-box;
 }
 
-#instruction {
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
+.container {
+    width: 100%;
+    margin: 20px auto;
 }
 
-#instruction > span {
+#dev > p > span {
     color: red;
-    font-weight: normal;
-    font-style: italic;
 }
 
 #alert {
@@ -33,18 +42,11 @@ body {
     text-align: center;
 }
 
-#header {
-    display: flex;
-    justify-content: center;
-    margin: 25px 0 10px 0;
-    font-size: 18px;
-}
-
 #pressure-stats, #stats-before {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 97%;
+    width: 90%;
     height: 100%;
     background-color: #141435 ;
     border-radius: 5px;
@@ -107,7 +109,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 97%;
+    width: 90%;
     height: 100%;
     background-color: #141435 ;
     border-radius: 5px;
@@ -128,10 +130,6 @@ input {
 
 #input-minute {
     width: 50px;
-}
-
-#input-match-id {
-    width: 100px;
 }
 
 #dev {
