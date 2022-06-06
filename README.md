@@ -1,6 +1,7 @@
 # Trade Radar
 
 ## A simple, easy to use, and fast radar for traders.
+<a href="https://github.com/darthyd/traderadar/releases/download/v.0.0.3_ALPHA/trade-radar-win32-x64.exe">Download the latest build here</a> or build it yourself!
 
 ### Building
 
