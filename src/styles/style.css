@@ -33,20 +33,6 @@ body {
     color: red;
 }
 
-#instruction {
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-    font-weight: bold;
-    color: #fff;
-}
-
-#instruction > span {
-    color: red;
-    font-weight: normal;
-    font-style: italic;
-}
-
 #alert {
     width: 50%;
     margin: 10px auto;
@@ -54,13 +40,6 @@ body {
     font-weight: bold;
     font-size: 10px;
     text-align: center;
-}
-
-#header {
-    display: flex;
-    justify-content: center;
-    margin: 25px 0 10px 0;
-    font-size: 18px;
 }
 
 #pressure-stats, #stats-before {
@@ -151,10 +130,6 @@ input {
 
 #input-minute {
     width: 50px;
-}
-
-#input-match-id {
-    width: 100px;
 }
 
 #dev {

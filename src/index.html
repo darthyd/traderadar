@@ -10,42 +10,7 @@
 <body>
     <div id="overlay"></div>
     <div class="container">
-        <div id="dev">
-            <p>
-                <br/>
-                Desenvolvido sob licença de código aberto e sem proposta de lucro comercial por
-                <span>@darthyd</span> <br/>
-
-            </p>
-    
-            <p>
-                <br/>
-                Todos os direitos de lucro e propriedade das informações do radar são de 
-                <span>SportRadar</span> <br/>
-                As informações pertencentes a referida empresa e aqui contidas são disponibilizadas mesma sob caráter de licença de demonstração.
-            </p>
-        </div>
-    
-        <div class="divider"></div>
-    
-        <div id="header">
-            <label for="input-match-id">
-                Match ID:
-            </label>
-            <input type="text" id="input-match-id" />
-            <button type="submit" id="submit-button">OK</button>
-        </div>
-        <div id="wrap-instructions">
-            <p id="instruction" href="">Busque o id da partida no site: <span>widgets.sir.sportradar.com/betradar/br/widgets-demo</span></p>
-            
-            <div class="divider">
-            </div>
-            
-            <p id="alert">ALERTA: Os inputs de cores estão configurados conforme o entendimento inicial do desenvolvedor sobre os números e não deve ser
-                levado em conta de forma isolada para justificar uma entrada, estude os números e veja qual a melhor interpretação deles
-                para o seu caso.
-            </p>
-        </div>
+        <div id="sr-widget" data-sr-widget="match.matchList" data-sr-sport-id="1"></div>
     
         <div id="widget">
             <div id="sr-widget" data-sr-widget="match.momentum" data-sr-match-id="26109428"></div>
@@ -74,6 +39,24 @@
                 <button type="submit" id="submit-minute">OK</button>
             </div>
             <div id="stats-before"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="dev">
+            <p>
+                <br/>
+                Desenvolvido sob licença de código aberto e sem proposta de lucro comercial por
+                <span>@darthyd</span> <br/>
+
+            </p>
+    
+            <p>
+                <br/>
+                Todos os direitos das informações do radar inclusive a exploração comercial destas são de propriedade
+                <span>SportRadar</span> e/ou suas subsidiárias e detentoras <br/>
+                <!-- As informações pertencentes a referida empresa e aqui contidas são disponibilizadas mesma sob caráter de licença de demonstração. -->
+            </p>
         </div>
     </div>
 

@@ -36,6 +36,9 @@ function createShortcuts() {
 // para criar janelas
 // Algumas APIs podem ser usadas somente depois que este evento ocorre.
 app.whenReady().then(() => {
+
+  if (require('electron-squirrel-startup')) return app.quit();
+
     createWindow()
     createShortcuts()
   
