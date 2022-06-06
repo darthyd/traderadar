@@ -70,6 +70,7 @@ function updateScreen(div, three, five, ten, total){
 setInterval(() => {
         HOME_BARS = document.querySelector(".srt-stroke-home-1");
         AWAY_BARS = document.querySelector(".srt-stroke-away-1");
+        if (!HOME_BARS && !AWAY_BARS) return;
         PRESSURE_BARS = getPressure()
         THREE = barsAverage(getLastBars(PRESSURE_BARS, 3));
         FIVE = barsAverage(getLastBars(PRESSURE_BARS, 5));
@@ -91,9 +92,4 @@ buttonMinute.addEventListener("click", () => {
     const total = barsAverage(minuteBars);
     console.log(minuteBars);
     updateScreen(BEFORE_STATS_DIV, three, five, ten, total);
-})
-
-submitButton.addEventListener("click", () => {
-    const URL = window.location.href.split("=")[0] + "=" + inputIdMatch.value;
-    window.location.href = URL;
 })
