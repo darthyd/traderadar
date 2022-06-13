@@ -1,0 +1,17 @@
+{
+  "name": "trade-radar-typescript",
+  "version": "1.0.0",
+  "description": "A simple, easy to use, and fast radar for traders.",
+  "main": "dist/index.js",
+  "author": "Lucas Oliveira <luaks.skt8@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "yarn build && electron ."
+  },
+  "devDependencies": {
+    "electron": "^19.0.4",
+    "typescript": "^4.7.3"
+  }
+}
