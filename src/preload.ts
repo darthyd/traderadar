@@ -1,6 +1,7 @@
 import { contextBridge } from "electron";
-import { cpus } from "os";
+
+console.log(`Preload script is running`);
 
 contextBridge.exposeInMainWorld('api', {
-    threads: cpus().length,
+    whData: false
 })

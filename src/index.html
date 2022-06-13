@@ -4,12 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Trade Radar by @darthyd</title>
 </head>
 <body>
-    <h1>Hello Electron, from Typescript</h1>
+    <div id="container">
+        <div id="widgets">
+            <div id="match-list">
+                <div id="sr-widget" data-sr-widget="match.matchList" data-sr-sport-id="1"></div>
+            </div>
+            <div id="momentum">
+                <div id="sr-widget" data-sr-widget="match.momentum" data-sr-match-id=""></div>
+            </div>
+            <div id="pressure-stats">
+                <h3>Carregando...</h3>
+            </div>
+            <iframe id="william-hill" style="display: none" src=""></iframe>
+            <div class="divider">
+            </div>
+            <div id="time-machine">
+                <h2 id="time-machine-h">Time Machine</h2>
+            
+                <p id="time-machine-desc">
+                    Insira um minuto especifico no campo abaixo para ver como estavam
+                    os indicadores naquele momento do jogo.
+                </p>
+            
+                <div id="form-time-machine">
+                    <label for="input-minute">
+                        Minuto:
+                    </label>
+                    <input type="number" id="input-minute" />
+                    <button type="submit" id="submit-minute">OK</button>
+                </div>
+                <div id="stats-before"></div>
+            </div>
+        </div>
 
-    <div id="core"></div>
+        <div class="divider"></div>
+
+        <div id="footer">
+            <p>
+                <br/>
+                Desenvolvido sob licença de código aberto e sem proposta de lucro comercial por
+                <span>@darthyd</span> <br/>
+
+            </p>
+    
+            <p>
+                <br/>
+                Todos os direitos das informações do radar inclusive a exploração comercial destas são de propriedade
+                <span>SportRadar</span> e/ou suas subsidiárias e detentoras <br/>
+            </p>
+        </div>
+
+    </div>
     <script src="../dist/renderer.js" defer></script>
+    <script src="./scripts/prescript.js" async></script>
+    <script src="./scripts/compact.js"></script>
+    <script type="application/javascript" src="https://widgets.sir.sportradar.com/sportradar/widgetloader" async>
+    </script>
+    <link rel="stylesheet" href="styles/chartStyle.css">
+    <link rel="stylesheet" href="styles/postCss.css">
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

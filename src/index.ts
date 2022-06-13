@@ -9,6 +9,7 @@ function createWindow(): void {
         height: 600,
         webPreferences: {
             nodeIntegration: true,
+            webSecurity: false,
             preload: path.resolve(__dirname, 'preload.js'),
         },
         show: false,
