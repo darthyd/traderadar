@@ -6,13 +6,15 @@
   "author": "Lucas Oliveira <luaks.skt8@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && copyfiles -u 1 src/server/db/database.db src/server/scrapper/getDayMatches.js src/server/scrapper/getLiveMatches.js dist",
     "watch": "tsc --watch",
     "start": "yarn build && electron .",
     "make": "yarn build && electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
     "electron": "^19.0.4",
     "electron-builder": "^23.0.3",
     "typescript": "^4.7.3"
@@ -23,13 +25,22 @@
       "src/index.html",
       "package.json",
       "src/scripts/*",
-      "src/styles/*"
+      "src/styles/*",
+      "src/server/db/database.db",
+      "src/server/scrapper/getDayMatches.js",
+      "src/server/scrapper/getLiveMatches.js"
     ],
+    "node-gyp-rebuild": true,
     "directories": {
       "output": "out"
     }
   },
   "dependencies": {
-    "copyfiles": "^2.4.1"
+    "@types/better-sqlite3": "^7.5.0",
+    "better-sqlite3": "^7.5.3",
+    "copyfiles": "^2.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "puppeteer": "^14.4.0"
   }
 }

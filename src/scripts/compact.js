@@ -11,7 +11,7 @@ const whill = document.getElementById("william-hill");
 console.log("compact");
 
 async function findId(home, away) {
-  const dataMatches = await fetch("http://localhost:3000/api/matches").then(
+  const dataMatches = await fetch("http://localhost:3428/api/matches").then(
     (res) => res.json()
   );
   if (dataMatches.length === 0)
@@ -53,9 +53,13 @@ document.addEventListener("keydown", async (e) => {
     away = document
       .querySelector(".srt-base-1-is-active")
       .querySelector(".srm-right").textContent;
-    // const id = (await findId(home, away)) || 0;
-    const id = 0;
+    const id = (await findId(home, away)) || 0;
     whill.src = `https://sports.whcdn.net/scoreboards/app/football/index.html?eventId=${id}&sport=football&locale=pt-pt&streamingAvailable=false&showSuggestions=true&expandDetails=true&showStreaming=false`;
     changeMode(id);
+  }
+
+  if (e.keyCode === 13 && e.altKey && e.ctrlKey) {
+    console.log("req update");
+    api.getData(true);
   }
 });
