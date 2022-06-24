@@ -8,27 +8,26 @@ const whill = document.getElementById("william-hill");
 const strSim = require("string-similarity");
 
 async function findId(home, away) {
-  const localData = localStorage.getItem("matches");
-  const dataMatches = await JSON.parse(localData);
-  const str2 = `${home} ${away}`;
-
-  if (!dataMatches) return;
-
-  const compare = await dataMatches.reduce(
+  const compare = await store.get("matches").reduce(
     (acc, match) => {
+      if (match.home.includes("vs")) return acc;
+
       const str = `${match.home} ${match.away}`;
+      const str2 = `${home} ${away}`;
 
       const concatSimilarity = strSim.compareTwoStrings(str, str2);
       const homeSimilarity = strSim.compareTwoStrings(match.home, home);
       const awaySimilarity = strSim.compareTwoStrings(match.away, away);
-      const mostSimilar = Math.max(
-        concatSimilarity,
-        homeSimilarity,
-        awaySimilarity
-      );
+      // const mostSimilar = Math.max(
+      //   concatSimilarity,
+      //   homeSimilarity,
+      //   awaySimilarity
+      // );
+      const mostSimilar2 =
+        (concatSimilarity * 2 + homeSimilarity + awaySimilarity) / 4;
 
-      if (mostSimilar > acc.similarity) {
-        return { ...match, similarity: mostSimilar };
+      if (mostSimilar2 > acc.similarity && mostSimilar2 > 0.4) {
+        return { ...match, similarity: mostSimilar2 };
       }
 
       return acc;
