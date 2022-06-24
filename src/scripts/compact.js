@@ -5,6 +5,13 @@ const timeMachine = document.getElementById("time-machine");
 const footer = document.getElementById("footer");
 const divider = document.querySelectorAll(".divider");
 const whill = document.getElementById("william-hill");
+const reloadWh = document.getElementById("reload-wh");
+const reloadWhBtn = document.getElementById("reload-wh-btn");
+const responseReload = document.getElementById("response-reload");
+
+let home;
+let away;
+
 const strSim = require("string-similarity");
 
 async function findId(home, away) {
@@ -40,9 +47,10 @@ async function findId(home, away) {
 }
 
 function changeMode(id) {
-  console.log(id);
   if (id !== 0) {
     whill.style.display = compact ? "" : "none";
+  } else {
+    reloadWh.style.display = compact ? "" : "none";
   }
   matchList.style.display = compact ? "none" : "";
   pressureStats.style.display = compact ? "none" : "";
@@ -73,4 +81,11 @@ document.addEventListener("keydown", async (e) => {
     console.log("req update");
     api.getData(true);
   }
+});
+
+reloadWhBtn.addEventListener("click", async () => {
+  const id = (await findId(home, away)) || 0;
+  whill.src = `https://sports.whcdn.net/scoreboards/app/football/index.html?eventId=${id}&sport=football&locale=pt-pt&streamingAvailable=false&showSuggestions=true&expandDetails=true&showStreaming=false`;
+  responseReload.innerText = "Não encontrado";
+  changeMode(id);
 });

@@ -4,8 +4,10 @@ import puppeteer from "puppeteer-core";
 import config from "./config";
 import * as path from "path";
 import getMatches from "./scrapper";
+import Store from "electron-store"
 
 let mainWindow: BrowserWindow;
+
 
 const main = async () => {
   await pie.initialize(app);
@@ -29,6 +31,8 @@ const main = async () => {
       },
     show: false,
 });
+
+Store.initRenderer();
 
 mainWindow.loadURL(config.url);
 

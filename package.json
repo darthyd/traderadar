@@ -1,6 +1,6 @@
 {
   "name": "trade-radar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple, easy to use, and fast radar for traders.",
   "main": "dist/index.js",
   "author": "Lucas Oliveira <luaks.skt8@gmail.com>",
