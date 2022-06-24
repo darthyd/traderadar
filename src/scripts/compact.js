@@ -1,31 +1,43 @@
-let matchID = 0;
 let compact = false;
 const matchList = document.getElementById("sr-widget");
 const pressureStats = document.getElementById("pressure-stats");
 const timeMachine = document.getElementById("time-machine");
 const footer = document.getElementById("footer");
 const divider = document.querySelectorAll(".divider");
-const activeMatch = document.querySelector(".srt-base-1-is-active");
 const whill = document.getElementById("william-hill");
-
-console.log("compact");
+const strSim = require("string-similarity");
 
 async function findId(home, away) {
-  const dataMatches = await fetch("http://localhost:3428/api/matches").then(
-    (res) => res.json()
+  const localData = localStorage.getItem("matches");
+  const dataMatches = await JSON.parse(localData);
+  const str2 = `${home} ${away}`;
+
+  if (!dataMatches) return;
+
+  const compare = await dataMatches.reduce(
+    (acc, match) => {
+      const str = `${match.home} ${match.away}`;
+
+      const concatSimilarity = strSim.compareTwoStrings(str, str2);
+      const homeSimilarity = strSim.compareTwoStrings(match.home, home);
+      const awaySimilarity = strSim.compareTwoStrings(match.away, away);
+      const mostSimilar = Math.max(
+        concatSimilarity,
+        homeSimilarity,
+        awaySimilarity
+      );
+
+      if (mostSimilar > acc.similarity) {
+        return { ...match, similarity: mostSimilar };
+      }
+
+      return acc;
+    },
+    { similarity: 0 }
   );
-  if (dataMatches.length === 0)
-    res.send(
-      "Sem dados. Verifique a requisição ou tente Novamente mais tarde."
-    );
-  const filtered = dataMatches.find((match) => {
-    return (
-      match.home.toLowerCase().includes(home.toLowerCase()) &&
-      match.away.toLowerCase().includes(away.toLowerCase())
-    );
-  });
-  console.log("find", filtered);
-  return filtered?.id;
+
+  console.log("find", compare);
+  return compare?.id;
 }
 
 function changeMode(id) {

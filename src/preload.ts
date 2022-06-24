@@ -1,26 +1,19 @@
+// // console.log(`Preload script is running`);
 
-import { contextBridge } from "electron";
+// import getMatches from "./scrapper";
 
-console.log(`Preload script is running`);
+// const getData: (force?: boolean | undefined) => Promise<boolean | void> = async (force?: boolean | undefined): Promise<boolean | void> => {
+//     console.log('getData called');
 
-const getData: (force?: boolean | undefined) => Promise<boolean | void> = async (force?: boolean | undefined): Promise<boolean | void> => {
-    console.log('getData called');
-    
-    const lastUpdate = await fetch('http://localhost:3428/api/updatedAt');
-    const timestamp = await lastUpdate.json();
+//     const matches = await getMatches.live();
 
-    console.log('check:', new Date(timestamp.updatedAt).getDate() === new Date().getDate() && !force);
-    
-    if(new Date(timestamp.updatedAt).getDate() === new Date().getDate() && !force) return true;
-    
-    const reqData = await fetch('http://localhost:3428/api/update');
-    const data = await reqData.json();
+//     localStorage.setItem('matches', JSON.stringify(matches));
 
-    return data.ok;
-}
+//     return matches
+// }
 
-contextBridge.exposeInMainWorld('api', {
-    getData
-})
+// contextBridge.exposeInMainWorld('api', {
+//     getData
+// })
 
-getData();
+// getData(true);

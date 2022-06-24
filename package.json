@@ -1,23 +1,22 @@
 {
-  "name": "trade-radar-typescript",
+  "name": "trade-radar",
   "version": "1.0.0",
   "description": "A simple, easy to use, and fast radar for traders.",
   "main": "dist/index.js",
   "author": "Lucas Oliveira <luaks.skt8@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc && copyfiles -u 1 src/server/db/database.db src/server/scrapper/getDayMatches.js src/server/scrapper/getLiveMatches.js dist",
+    "build": "tsc && copyfiles -u 1 src/scrapper/getDayMatches.js src/scrapper/getLiveMatches.js dist",
     "watch": "tsc --watch",
     "start": "yarn build && electron .",
     "make": "yarn build && electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.13",
+    "@types/string-similarity": "^4.0.0",
+    "copyfiles": "^2.4.1",
     "electron": "^19.0.4",
     "electron-builder": "^23.0.3",
-    "copyfiles": "^2.4.1",
     "typescript": "^4.7.3"
   },
   "build": {
@@ -27,19 +26,17 @@
       "package.json",
       "src/scripts/*",
       "src/styles/*",
-      "src/server/db/database.db",
-      "src/server/scrapper/getDayMatches.js",
-      "src/server/scrapper/getLiveMatches.js"
+      "src/scrapper/getDayMatches.js",
+      "src/scrapper/getLiveMatches.js"
     ],
     "directories": {
       "output": "out"
-    }
+    },
+    "productName": "Trade Radar"
   },
   "dependencies": {
-    "@types/better-sqlite3": "^7.5.0",
-    "better-sqlite3": "^7.5.3",
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "puppeteer": "^14.4.0"
+    "puppeteer-core": "^14.4.0",
+    "puppeteer-in-electron": "^3.0.5",
+    "string-similarity": "^4.0.4"
   }
 }
