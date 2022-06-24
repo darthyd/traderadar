@@ -1,60 +1,42 @@
 {
   "name": "trade-radar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple, easy to use, and fast radar for traders.",
-  "main": "src/main.js",
+  "main": "dist/index.js",
+  "author": "Lucas Oliveira <luaks.skt8@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "build": "tsc && copyfiles -u 1 src/scrapper/getDayMatches.js src/scrapper/getLiveMatches.js dist",
+    "watch": "tsc --watch",
+    "start": "yarn build && electron .",
+    "make": "yarn build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
   },
-  "keywords": [
-    "Electron",
-    "Webview",
-    "Chromium",
-    "Linux",
-    "Initial",
-    "Alpha",
-    "Trading"
-  ],
-  "author": "Lucas Oliveira",
-  "license": "CC0-1.0",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "electron": "^13.1.0"
+    "@types/string-similarity": "^4.0.0",
+    "copyfiles": "^2.4.1",
+    "electron": "^19.0.4",
+    "electron-builder": "^23.0.3",
+    "typescript": "^4.7.3"
+  },
+  "build": {
+    "files": [
+      "dist/**/*",
+      "src/index.html",
+      "package.json",
+      "src/scripts/*",
+      "src/styles/*",
+      "src/scrapper/getDayMatches.js",
+      "src/scrapper/getLiveMatches.js"
+    ],
+    "directories": {
+      "output": "out"
+    },
+    "productName": "Trade Radar"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "trade_radar"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
+    "puppeteer-core": "^14.4.0",
+    "puppeteer-in-electron": "^3.0.5",
+    "string-similarity": "^4.0.4"
   }
 }

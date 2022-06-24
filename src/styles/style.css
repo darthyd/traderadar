@@ -24,9 +24,9 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+#container {
     width: 100%;
-    margin: 20px auto;
+    margin: 30px auto;
 }
 
 #alert {
@@ -36,6 +36,13 @@ body {
     font-weight: bold;
     font-size: 10px;
     text-align: center;
+}
+
+#william-hill {
+    width: 100%;
+    overflow-x: hidden;
+    height: 325px;
+    border: none;
 }
 
 #pressure-stats, #stats-before {
@@ -90,6 +97,7 @@ body {
 
 #time-machine-h {
     margin: 10px auto;
+    width: 100%;
     text-align: center;
     color: #fff;
 }
@@ -116,6 +124,7 @@ body {
 
 #form-time-machine {
     display: flex;
+    width: 100%;
     justify-content: center;
     font-size: 18px;
 }

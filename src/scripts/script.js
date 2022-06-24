@@ -10,6 +10,7 @@ let TOTAL = "N/A";
 let REFERENCE;
 const buttonMinute = document.getElementById("submit-minute");
 
+console.log("script");
 
 function getPressure(){
     const pressure = [];
